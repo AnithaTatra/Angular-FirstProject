@@ -15,10 +15,12 @@
         <input
           type="text"
           name=""
-          placeholder="User name"
+          placeholder="UserName"
           required=""
-          id="userName"
+          id="username"
+         [(ngModel)]="username"
         />
+       
 
         <input
           type="email"
@@ -26,6 +28,7 @@
           placeholder="Email"
           required=""
           id="email"
+          [(ngModel)]="email"
         />
 
         <input
@@ -34,6 +37,7 @@
           placeholder="Mobile Number"
           required=""
           id="mobileNumber"
+          [(ngModel)]="mobileNumber"
         />
 
         <input
@@ -42,9 +46,10 @@
           required=""
           name=""
           id="password"
+          [(ngModel)]="password"
         />
 
-        <button id="btn" style="margin-top: 32px ;">Sign up</button>
+        <button id="btn" style="margin-top: 32px ;" (click)="ClickHere()">Sign up</button>
       </div>
       <div class="login">
         <label for="chk" aria-hidden="true">Login</label>
@@ -54,6 +59,7 @@
           id="username"
           placeholder="Username"
           required=""
+          
         />
 
         <input
@@ -63,9 +69,65 @@
           placeholder="Password"
           required=""
         />
+        
 
         <button id="login">Login</button>
       </div>
     </div>
   </body>
+  <div *ngIf ="isVisible">
+
+  <table   class="table table-hover table-striped table-bordered" 
+  width="100%">
+
+  <thead>
+    <tr>
+      <th>UserName</th>
+        <th>Email</th>
+        <th>MobileNumber</th>
+        <th>Password</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr class="table table-hover table-striped table-bordered" width="100%"  *ngFor="let items  of List">
+      <td>{{items.username}} </td>
+            <td> {{items.email}} </td>
+            <td> {{items.mobileNumber}}</td>
+            <td>{{items.password}} </td>
+        </tr>
+        </tbody>
+  </table>
+</div>
+
+
+  <!-- <div>
+    <div *ngIf ="isVisible">
+      <thead>
+        <tr>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>MobileNumber</th>
+        <th>Password</th>
+      </tr>
+      </thead>
+     
+     
+      <table >
+        <tbody>
+          <tr  *ngFor="let items  of List">
+            <td>{{items.username}} </td>
+            <td> {{items.email}} </td>
+            <td> {{items.mobileNumber}}</td>
+            <td>{{items.password}} </td>
+          </tr>
+        </tbody>
+      </table> -->
+   
+   
+    
+  
+ 
+  <button (click)="hideList()">
+    Click to Hide List
+  </button>
 </html>
